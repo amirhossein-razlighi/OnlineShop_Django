@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
+{% load thumbnail %}
 
 {% block content %}
     <h3> Home </h3>
     {% for product in products %}
         <div class="card" style="width: 20rem; display: inline-block">
-            <img class="card-img-top" src="{{ product.image.url }}" alt="Card image cap">
+            {% thumbnail product.image "400x400" crop="center" as image %}
+                <img class="card-img-top" src="{{ image.url }}" alt="Card image cap"
+                     width="{{ image.width }}" height="{{ image.height }}">
+            {% endthumbnail %}
             <div class="card-body">
                 <h5 class="card-title">{{ product.name }}</h5>
                 <p class="card-text"> {{ product.description }}</p>
