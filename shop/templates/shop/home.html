@@ -2,4 +2,14 @@
 
 {% block content %}
     <h3> Home </h3>
+    {% for product in products %}
+        <div class="card" style="width: 20rem; display: inline-block">
+            <img class="card-img-top" src="{{ product.image.url }}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text"> {{ product.description }}</p>
+                <a href="{{ product.get_absolute_url }}" class="btn btn-primary">See Product!</a>
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}
