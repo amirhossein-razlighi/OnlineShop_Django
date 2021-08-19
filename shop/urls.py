@@ -6,4 +6,6 @@ app_name = 'shop'
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('catgeory/<slug:slug>/', views.home, name='category_filter'),
+    path('<slug:slug>/', views.product_detail, name='product_detail'),
 ]

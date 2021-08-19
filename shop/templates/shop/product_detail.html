@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3 style="text-align: center">{{ product.name }}</h3>
+    <p style="text-align: center">{{ product.create_date }}</p><br/>
+    <p style="text-align: center">{{ product.price }} Tomans</p><br/>
+    <img src="{{ product.image.url }}" width="800" height="600" alt="" style="display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;"> <br/><br/>
+    <p>{{ product.description }}</p>
+{% endblock %}
