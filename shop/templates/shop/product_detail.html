@@ -9,4 +9,10 @@
     margin-right: auto;
     width: 85%;"> <br/><br/>
     <p>{{ product.description }}</p>
+    <br/><br/>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Add To Cart" class="btn btn-primary">
+    </form>
 {% endblock %}
