@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.http import require_POST
 
@@ -19,4 +20,12 @@ def add_to_cart(request, product_id):
     if form.is_valid():
         c_data = form.cleaned_data
         cart.add(product=product, quantity=c_data['quantity'])
+    return redirect('cart:detail')
+
+
+def remove_from_cart(request, product_id):
+    cart = Cart(request=request)
+    product = get_object_or_404(Product, id=product_id)
+    cart.remove_product(product)
+    messages.success(request, 'Item Deleted Successfully!', 'success')
     return redirect('cart:detail')
