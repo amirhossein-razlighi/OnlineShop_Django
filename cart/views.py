@@ -7,7 +7,8 @@ from shop.models import Product
 
 
 def detail(request):
-    return render(request, 'cart/detail.html')
+    cart = Cart(request=request)
+    return render(request, 'cart/detail.html', context={'cart': cart})
 
 
 @require_POST
