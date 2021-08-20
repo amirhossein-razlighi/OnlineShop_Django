@@ -26,7 +26,7 @@ class Product(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     image = models.ImageField(upload_to='products/%Y/%m/%d/')
     description = models.TextField()
-    price = models.DecimalField(max_digits=10, decimal_places=2)  # Example 259.50 $US
+    price = models.IntegerField()  # Example 2590 000 Tomans
     is_available = models.BooleanField(default=True)
     create_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
